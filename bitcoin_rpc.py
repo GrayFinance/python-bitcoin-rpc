@@ -1,4 +1,3 @@
-import urllib.parse as urlparse
 import requests
 
 class BitcoinRPC:
@@ -26,5 +25,5 @@ class BitcoinRPC:
     def getblockcount(self) -> int:
         return int(self.call("getblockcount"))
     
-    def importdescriptors(self, descriptors: tuple) -> dict:
-        return self.call("importdescriptors", *list(descriptors))
+    def importdescriptors(self, *descriptors: tuple) -> dict:
+        return self.call("importdescriptors", descriptors)
